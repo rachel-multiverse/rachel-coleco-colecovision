@@ -1,0 +1,7 @@
+build/
+*.col
+*.rom
+*.o
+*.lst
+*.sym
+.DS_Store
