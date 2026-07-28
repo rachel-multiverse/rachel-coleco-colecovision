@@ -36,10 +36,12 @@ The ColecoVision uses the TMS9918A VDP, the predecessor to the SMS's VDP:
 
 ## Protocol
 
-Uses RUBP (Rachel Universal Binary Protocol):
+Uses RUBP (Rachel Unified Binary Protocol):
 - 64-byte fixed-size messages
 - 16-byte header with "RACH" magic
 - 48-byte payload
+
+Full specification: [rachel-multiverse/protocol](https://github.com/rachel-multiverse/protocol) — also rendered at <https://rachel.stevehill.xyz/protocol>.
 
 ## Memory Constraints
 
