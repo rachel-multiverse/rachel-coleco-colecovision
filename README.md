@@ -25,6 +25,15 @@ make
 
 Output: `build/rachel.col`
 
+Launch it with the matching Emu198x core:
+
+```bash
+tools/run-emulator
+```
+
+Set `EMU198X_ROOT` if the Emu198x workspace is not at the usual sibling
+`Projects/198x/Emu198x/emu198x` path. Extra arguments are passed to the core.
+
 ## Hardware Notes
 
 The ColecoVision uses the TMS9918A VDP, the predecessor to the SMS's VDP:

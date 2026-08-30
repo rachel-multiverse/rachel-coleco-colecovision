@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+emu_root=${EMU198X_ROOT:-"$repo_dir/../../198x/Emu198x/emu198x"}
+
+if [ ! -f "$emu_root/Cargo.toml" ]; then
+    echo "Emu198x workspace not found: $emu_root" >&2
+    echo "Set EMU198X_ROOT to the emu198x workspace directory." >&2
+    exit 2
+fi
+
+make -C "$repo_dir"
+exec cargo run --manifest-path "$emu_root/Cargo.toml" -p emu198x-colecovision -- --cart "$repo_dir/build/rachel.col" "$@"
