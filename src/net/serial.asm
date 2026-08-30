@@ -147,7 +147,7 @@ recv_no_data:
 at_cipstart:
         db      "AT+CIPSTART=\"TCP\",\"", 0
 at_port:
-        db      "\",8765", 13, 0
+        db      "\",6502", 13, 0
 at_cipsend:
         db      "AT+CIPSEND=64", 13, 0
 ip_string:
