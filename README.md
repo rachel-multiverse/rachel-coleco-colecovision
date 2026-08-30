@@ -2,6 +2,11 @@
 
 A Rachel card game client for the ColecoVision.
 
+> **Compatibility status:** the ROM builds, but ports `$50-$52` describe a
+> proposed expansion-bus adapter rather than known commercial hardware. The
+> adapter has not been built or electrically validated. See
+> [HARDWARE.md](HARDWARE.md).
+
 ## Platform Details
 
 - **CPU**: Zilog Z80 @ 3.58 MHz
