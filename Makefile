@@ -5,19 +5,20 @@ AFLAGS = --bin
 
 SRC_DIR = src
 BUILD_DIR = build
+SOURCES = $(wildcard $(SRC_DIR)/*.asm $(SRC_DIR)/net/*.asm)
 
 TARGET = $(BUILD_DIR)/rachel.col
 
 .PHONY: all clean
 
-all: $(BUILD_DIR) $(TARGET)
+all: $(TARGET)
 	@ls -la $(TARGET)
 	@echo "Build complete: $(TARGET)"
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(TARGET):
+$(TARGET): $(SOURCES) | $(BUILD_DIR)
 	cd $(SRC_DIR) && $(ASM) $(AFLAGS) main.asm ../$(TARGET)
 
 clean:
