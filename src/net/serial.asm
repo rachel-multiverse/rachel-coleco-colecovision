@@ -60,6 +60,7 @@ wait_tx:
 ; Read Byte via Serial
 ; =============================================================================
 serial_read_byte:
+        push    bc              ; Caller owns frame/response loop counters
         ld      bc, 10000
 wait_rx:
         in      a, (SERIAL_STATUS)
@@ -70,10 +71,12 @@ wait_rx:
         or      c
         jr      nz, wait_rx
         scf
+        pop     bc              ; POP preserves A and carry
         ret
 got_data:
         in      a, (SERIAL_DATA)
         or      a
+        pop     bc              ; POP preserves A and carry
         ret
 
 ; =============================================================================
