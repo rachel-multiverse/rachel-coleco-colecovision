@@ -1,0 +1,25 @@
+name: Build ColecoVision ROM
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install assembler
+        run: sudo apt-get update && sudo apt-get install -y pasmo
+      - name: Build ROM
+        run: make
+      - name: Upload ROM
+        uses: actions/upload-artifact@v4
+        with:
+          name: rachel-colecovision
+          path: build/rachel.col
+          if-no-files-found: error
